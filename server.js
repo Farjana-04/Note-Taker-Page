@@ -24,9 +24,6 @@ app.get('/notes', (req, res) => {
 //GET request on http://localhost:3001/api/notes to get information from db.json file
 app.get('/api/notes', (req, res) => {
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
-    // if (err) {
-    //   return res.status(500).json({ error: 'Error reading data' });
-    // }
     const notes = JSON.parse(data);
     return res.json(notes);
   });
