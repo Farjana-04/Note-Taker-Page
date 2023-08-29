@@ -11,24 +11,26 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to serve up static assets from the public folder
 app.use(express.static('public'));
 
-// //GET request on http://localhost:3001/api/notes 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, './public/index.html'));
-// });
+//define routes for two different URLs ("/" and "/notes")
+//When users visit these URLs, they will be served corresponding HTML files 
+//("index.html" and "notes.html") from the "public" directory of the application
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
-// app.get('/notes', (req, res) => {
-//   res.sendFile(path.join(__dirname, './public/notes.html'));
-// });
-
-// app.get('/api/notes', (req, res) => {
-//   fs.readFile('./db/db.json', 'utf8', (err, data) => {
-//     // if (err) {
-//     //   return res.status(500).json({ error: 'Error reading data' });
-//     // }
-//     const notes = JSON.parse(data);
-//     return res.json(notes);
-//   });
-// });
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/notes.html'));
+});
+//GET request on http://localhost:3001/api/notes to get information from db.json file
+app.get('/api/notes', (req, res) => {
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    // if (err) {
+    //   return res.status(500).json({ error: 'Error reading data' });
+    // }
+    const notes = JSON.parse(data);
+    return res.json(notes);
+  });
+});
 
 // app.post('/api/notes', (req, res) => {
 //   let dataBase = fs.readFileSync('./db/db.json', 'utf8');
