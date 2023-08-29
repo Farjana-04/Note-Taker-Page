@@ -28,22 +28,22 @@ app.get('/api/notes', (req, res) => {
     return res.json(notes);
   });
 });
-
-// app.post('/api/notes', (req, res) => {
-//   let dataBase = fs.readFileSync('./db/db.json', 'utf8');
-//   dataBase = JSON.parse(dataBase);
+//POST request for create information in data base
+app.post('/api/notes', (req, res) => {
+  let dataBase = fs.readFileSync('./db/db.json', 'utf8');
+  dataBase = JSON.parse(dataBase);
   
-//   const newNote = {
-//     title: req.body.title,
-//     text: req.body.text,
-//     id: uuidv4(), // Generate a unique ID
-//   };
+  const newNote = {
+    title: req.body.title,
+    text: req.body.text,
+    id: uuidv4(), // Generate a unique ID
+  };
   
-//   dataBase.push(newNote);
+  dataBase.push(newNote);
   
-//   fs.writeFileSync('./db/db.json', JSON.stringify(dataBase, null, 2));
-//   res.json(newNote);
-// });
+  fs.writeFileSync('./db/db.json', JSON.stringify(dataBase, null, 2));
+  res.json(newNote);
+});
 
 // app.delete('/api/notes/:id', (req, res) => {
 //   let dataBase = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
