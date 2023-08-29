@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-// const { v4: uuidv4 } = require('uuid'); // Import uuidv4 for generating unique IDs
+const { v4: uuidv4 } = require('uuid'); // Import uuidv4 for generating unique IDs
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -53,10 +53,10 @@ app.use(express.static('public'));
 //   fs.writeFileSync('./db/db.json', JSON.stringify(deleteNotes, null, 2));
 //   res.json(deleteNotes);
 // });
-
-// app.listen(PORT, () =>
-//   console.log(`App listening on PORT ${PORT}`)
-// );
+//app listening at http://localhost:3001 and server is open
+app.listen(PORT, () =>
+  console.log(`App listening on PORT ${PORT}`)
+);
 
 
 
