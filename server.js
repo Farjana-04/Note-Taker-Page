@@ -5,11 +5,11 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// // Middleware for parsing application/json and urlencoded data
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// // Middleware to serve up static assets from the public folder
-// app.use(express.static('public'));
+// Middleware for parsing application/json and urlencoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// Middleware to serve up static assets from the public folder
+app.use(express.static('public'));
 
 // //GET request on http://localhost:3001/api/notes 
 // app.get('/', (req, res) => {
