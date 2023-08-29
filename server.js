@@ -44,14 +44,14 @@ app.post('/api/notes', (req, res) => {
   fs.writeFileSync('./db/db.json', JSON.stringify(dataBase, null, 2));
   res.json(newNote);
 });
-
-// app.delete('/api/notes/:id', (req, res) => {
-//   let dataBase = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
-//   let deleteNotes = dataBase.filter(item => item.id !== req.params.id);
+//DELETE information from data base
+app.delete('/api/notes/:id', (req, res) => {
+  let dataBase = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+  let deleteNotes = dataBase.filter(item => item.id !== req.params.id);
   
-//   fs.writeFileSync('./db/db.json', JSON.stringify(deleteNotes, null, 2));
-//   res.json(deleteNotes);
-// });
+  fs.writeFileSync('./db/db.json', JSON.stringify(deleteNotes, null, 2));
+  res.json(deleteNotes);
+});
 //app listening at http://localhost:3001 and server is open
 app.listen(PORT, () =>
   console.log(`App listening on PORT ${PORT}`)
