@@ -29,7 +29,8 @@ No contributes
 ## Tests
 Testing is not required
 
-## Deployed Video Link:
+## Deployed Application Link:
+https://note-page-c825db812e82.herokuapp.com/
 
 
 
