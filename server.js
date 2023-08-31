@@ -64,35 +64,3 @@ app.listen(PORT, () =>
     
 
 
-// //all notes send to json if user accesses /api/notes
-// app.get("/api/notes", (req, res) => {
-//   fs.readFile('./db/db.json', 'utf8', (err, data) =>{
-//     let notes = JSON.parse(data);
-//     return res.json(notes);
-//   });
-//     });
-// //POST request for create information in data base
-//     app.post("/api/notes", (req, res) => {
-//     let dataBase = fs.readFileSync('./db/db/json');
-//     dataBase = JSON.parse(dataBase)
-//     //create new note object
-//   let notesForUser = { 
-//     title: req.body.title, 
-//     text: req.body.text, 
-//     id: id 
-//     }
-//     dataBase.push(notesForUser);
-//     fs.writeFileSync('./db/db/json', JSON.stringify(dataBase))
-//     res.json(dataBase);
-//     });
-// //DELETE information from data base
-// app.delete('/api/notes/:id',(req,res) => {
-//   let dataBase = JSON.parse(fs.readFileSync('.db/db.json'))
-//   let deleteNotes = dataBase.filter(item => item.id !== req.params.id);
-//   fs.writeFileSync('./db/db.json', JSON.stringify(deleteNotes));
-//   res.json(deleteNotes);
-// })
-
-// app.listen(PORT, () =>
-//   console.log(`App listening on PORT ${PORT}`)
-// );
